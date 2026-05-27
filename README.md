@@ -43,7 +43,7 @@ Designed with a futuristic UI, smooth animations, interactive sections, and a cl
 ## 📬 Contact
 
 - GitHub: https://github.com/vansh1011
-- LinkedIn: https://linkedin.com/in/vansh-renu-parmar-5b4b49323
+- LinkedIn: https://www.linkedin.com/in/vansh-parmar-5b4b49323/
 - Email: vanshparmar8742@gmail.com
 
 ---
