@@ -33,7 +33,7 @@ const skills = {
     { name: "DSA / CP", level: 80 },
     { name: "SQL", level: 65 },
   ],
-};
+}
 
 const projects = [
   {
@@ -42,6 +42,7 @@ const projects = [
     tags: ["React", "Node.js", "MongoDB", "Express"],
     Icon: FaHospital,
     color: "#00f5c4",
+    live: "https://medical-help-chi.vercel.app/",
   },
   {
     title: "VideoCall App",
@@ -49,8 +50,9 @@ const projects = [
     tags: ["WebRTC", "React", "Socket.io", "Node.js"],
     Icon: FaVideo,
     color: "#7b6ef6",
+    live: "https://vcall-drab.vercel.app",
   },
-];
+]
 
 function useInView(ref) {
   const [inView, setInView] = useState(false);
@@ -771,9 +773,8 @@ export default function Main() {
                   padding: "0.6rem 1.6rem",
                   fontSize: 15,
                   letterSpacing: 1.5,
-                  border: `1px solid ${
-                    activeSkillTab === tab ? accentTeal : "#333344"
-                  }`,
+                  border: `1px solid ${activeSkillTab === tab ? accentTeal : "#333344"
+                    }`,
                   background:
                     activeSkillTab === tab
                       ? `${accentTeal}15`
@@ -914,28 +915,82 @@ export default function Main() {
                 </p>
 
                 <div
+  style={{
+    display: "flex",
+    flexWrap: "wrap",
+    gap: "0.5rem",
+  }}
+>
+  {p.tags.map((t) => (
+    <span
+      key={t}
+      style={{
+        fontSize: 13,
+        padding: "2px 10px",
+        letterSpacing: 1,
+        border: `0.5px solid ${p.color}55`,
+        color: p.color,
+        borderRadius: 2,
+      }}
+    >
+      {t}
+    </span>
+  ))}
+</div>
+
+<a
+  href={p.live}
+  target="_blank"
+  rel="noopener noreferrer"
+  style={{
+    display: "inline-block",
+    marginTop: "1.5rem",
+    padding: "0.7rem 1.4rem",
+    border: `1px solid ${p.color}`,
+    color: p.color,
+    textDecoration: "none",
+    letterSpacing: 1,
+    fontSize: 14,
+    transition: "all 0.2s",
+  }}
+  onMouseEnter={(e) => {
+    e.currentTarget.style.background = p.color;
+    e.currentTarget.style.color = "#0a0a12";
+  }}
+  onMouseLeave={(e) => {
+    e.currentTarget.style.background = "transparent";
+    e.currentTarget.style.color = p.color;
+  }}
+>
+  LIVE DEMO ↗
+</a>
+
+                <a
+                  href={p.live}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   style={{
-                    display: "flex",
-                    flexWrap: "wrap",
-                    gap: "0.5rem",
+                    display: "inline-block",
+                    marginTop: "1.5rem",
+                    padding: "0.7rem 1.4rem",
+                    border: `1px solid ${p.color}`,
+                    color: p.color,
+                    textDecoration: "none",
+                    letterSpacing: 1,
+                    fontSize: 14,
+                    transition: "all 0.2s",
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = p.color;
+                    e.currentTarget.style.color = "#0a0a12";
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = "transparent";
+                    e.currentTarget.style.color = p.color;
                   }}
                 >
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      style={{
-                        fontSize: 13,
-                        padding: "2px 10px",
-                        letterSpacing: 1,
-                        border: `0.5px solid ${p.color}55`,
-                        color: p.color,
-                        borderRadius: 2,
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
-                </div>
+                  LIVE DEMO ↗
+                </a>
               </div>
             ))}
           </div>
