@@ -915,82 +915,86 @@ export default function Main() {
                 </p>
 
                 <div
-  style={{
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "0.5rem",
-  }}
->
-  {p.tags.map((t) => (
-    <span
-      key={t}
-      style={{
-        fontSize: 13,
-        padding: "2px 10px",
-        letterSpacing: 1,
-        border: `0.5px solid ${p.color}55`,
-        color: p.color,
-        borderRadius: 2,
-      }}
-    >
-      {t}
-    </span>
-  ))}
-</div>
-
-<a
-  href={p.live}
-  target="_blank"
-  rel="noopener noreferrer"
-  style={{
-    display: "inline-block",
-    marginTop: "1.5rem",
-    padding: "0.7rem 1.4rem",
-    border: `1px solid ${p.color}`,
-    color: p.color,
-    textDecoration: "none",
-    letterSpacing: 1,
-    fontSize: 14,
-    transition: "all 0.2s",
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.background = p.color;
-    e.currentTarget.style.color = "#0a0a12";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.background = "transparent";
-    e.currentTarget.style.color = p.color;
-  }}
->
-  LIVE DEMO ↗
-</a>
+                  style={{
+                    display: "flex",
+                    flexWrap: "wrap",
+                    gap: "0.5rem",
+                  }}
+                >
+                  {p.tags.map((t) => (
+                    <span
+                      key={t}
+                      style={{
+                        fontSize: 13,
+                        padding: "2px 10px",
+                        letterSpacing: 1,
+                        border: `0.5px solid ${p.color}55`,
+                        color: p.color,
+                        borderRadius: 2,
+                      }}
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
 
                 <a
                   href={p.live}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
-                    display: "inline-block",
+                    position: "relative",
+                    overflow: "hidden",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    gap: "8px",
                     marginTop: "1.5rem",
-                    padding: "0.7rem 1.4rem",
+                    padding: "0.85rem 1.8rem",
+                    background: p.color,
                     border: `1px solid ${p.color}`,
-                    color: p.color,
+                    color: "#0a0a12",
                     textDecoration: "none",
-                    letterSpacing: 1,
-                    fontSize: 14,
-                    transition: "all 0.2s",
+                    letterSpacing: 2,
+                    fontSize: 13,
+                    fontWeight: "bold",
+                    transition: "transform 0.15s ease, box-shadow 0.15s ease",
+                    boxShadow: `0 0 25px ${p.color}55`,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.background = p.color;
-                    e.currentTarget.style.color = "#0a0a12";
+                    e.currentTarget.style.transform = "translateY(-3px)";
+                    e.currentTarget.style.boxShadow = `0 8px 28px ${p.color}88`;
+
+                    e.currentTarget.querySelector(".shimmer").style.left =
+                      "160%";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.background = "transparent";
-                    e.currentTarget.style.color = p.color;
+                    e.currentTarget.style.transform = "translateY(0)";
+                    e.currentTarget.style.boxShadow = `0 0 25px ${p.color}55`;
+
+                    e.currentTarget.querySelector(".shimmer").style.left =
+                      "-100%";
                   }}
                 >
+                  <span
+                    className="shimmer"
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: "-100%",
+                      width: "60%",
+                      height: "100%",
+                      background: "rgba(255,255,255,0.25)",
+                      transform: "skewX(-20deg)",
+                      transition: "left 0.4s ease",
+                      pointerEvents: "none",
+                    }}
+                  />
+
                   LIVE DEMO ↗
                 </a>
+
+
               </div>
             ))}
           </div>
