@@ -1050,7 +1050,7 @@ export default function Main() {
               {
                 label: "LinkedIn",
                 val: "linkedin.com/in/vansh-renu-parmar-5b4b49323",
-                href: "https://www.linkedin.com/in/vansh-renu-parmar-5b4b49323/",
+                href: "https://www.linkedin.com/in/vansh-parmar-5b4b49323/",
                 Icon: FaLinkedin,
               },
             ].map((row) => (
